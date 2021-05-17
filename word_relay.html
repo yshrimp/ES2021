@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>끝말잇기</title>
+	<style></style>
+</head>
+<body>
+	<div><span id="order">1</span>번째 참가자</div> <!-- shift+alt 방향키 위 아래 (복사됨) -->
+	<div>제시어: <span id="word"></span></div>
+	<input type="text">
+	<button>입력</button>
+	<script>
+		const number = parseInt(prompt('몇 명이 참가하나요?'), 10); /* prompt로 받은 값은 문자열로 나타나기 때문에 
+		parseInt로 숫자로 변환, 뒤에 숫자는 몇진법으로 숫자를 나타낼 것인지(기본 10진법임)*/
+		const $button = document.querySelector('button');
+		const $input = document.querySelector('input');
+		const $word = document.querySelector('#word')
+		let word; // 제시어
+		let newWord; // 새로 입력한 단어
+
+		const onClickButton = () => {
+			if (!word) { // 제시어가 비어 있는가?
+				// 비어 있다.
+				word = newWord; // 입력한 단어가 제시어가 된다.
+				$word.textContent = word;
+				$input.value = '';
+			} else {
+				// 비어 있지 않다.
+				if (word[word.length -1] === newWord[0]) { // 올바른가
+					word = newWord; // 입력한 단어가 제시어가 된다.
+					$word.textContent = word;
+					$input.value = '';
+				} else { // 올바르지 않은가
+
+				}
+			}
+		};
+		const onInput = (event) => {
+			newWord = event.target.value;
+		};
+
+		$button.addEventListener('click', onClickButton);
+		$input.addEventListener('input', onInput);
+	</script> 
+</body>
+</html>
