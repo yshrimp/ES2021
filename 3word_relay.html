@@ -20,17 +20,26 @@
         const $order = document.querySelector('#order'); 
         let word; // 제시어
         let newWord; // 새로 제시한 제시어
-        
+        let order = 0;
+
         const onClickButton = () => {
             if (!word || (word[word.length -1] === newWord[0] && newWord.length === 3)) { // 제시어가 없을 때
                 word = newWord; // input에서 입력받은 newWord가 제시어가 된다.
                 $word.textContent = word; // $word이 부분을 word가 채우고
-                const order = Number($order.textContent);
-                if (order + 1 > number) {
-                    $order.textContent = 1;
-                } else {
-                    $order.textContent = order + 1; 
-                }
+                
+            //     const order = Number($order.textContent); // 현재 순서
+			// 	if (order + 1 > number) {
+			// 		$order.textContent = 1;
+			// 	} else {
+			// 		$order.textContent = order + 1;
+			// 	}
+			// }  else { // 올바르지 않은가
+			// 		alert('옳바르지 않은 단어입니다.');
+			// 	}
+
+                order++
+                $order.textContent = order % 3 + 1;
+
             } else { // 제시어가 있을 때
                 alert('종료');
             }
