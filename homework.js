@@ -44,3 +44,32 @@ for (let i = 0; i <= 4; i++) {
 // 0 5 0  2 - 2  1 + 4
 // 1 3 1  2 - 3  1 + 2
 // 2 1 2  2 - 4
+
+function test() {
+    let result = '';
+    if (a) {
+        if (!b) {
+            result = 'c';
+        }
+    } else {
+        result = 'a';
+    }
+    result += 'b';
+    return result;
+}
+
+function test() {
+    let result = '';
+    if (a) {
+        if (!b) {
+            result = 'c';
+        }
+        result += 'b';
+        return result;
+    } else {
+        result = 'a';
+        result += 'b';
+        return result;
+    }
+    
+}
