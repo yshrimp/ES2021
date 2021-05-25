@@ -79,9 +79,33 @@ document.querySelector('input').addEventListener('input', (event) => {
     console.log('글자 입력', event.target.value);
 }) // 사용자가 input에 입력한 글자를 콘솔로그를 통해서 볼 수 있음
 
-// 고차함수 (high order function)
-() => {
-    return // 바로 () => {return} 나오면 {}, return 생략 가능 
-} 
+// 고차함수 (high order function) : 함수가 함수를 리턴하는 함수
+() => {} // return 코드를 작성 안하면 기본 값인 undefined
+() => {return console.log('hi')} // 화살표 함수는 {}뒤에 return이 바로 나오면 {}, return 생략 가능
+() => console.log('hi')
 
-(dsfja) 
+const hof = (a) => (b) => c => {
+    return a + (b * c);
+};
+
+const first = hof(3);
+const second = first(5);
+const third = second(4);
+
+console.log(third); // 23
+
+const func = (msg) => {
+    return () => {
+        console.log(msg);
+    };
+};
+
+const func1 = func('hello'); // func1(); > hello
+const func2 = func('javascript'); // func2(); > javascript
+
+() => () => {}
+// 풀어 써보면
+() => { return () => {} }
+
+
+

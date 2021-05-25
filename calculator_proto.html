@@ -49,21 +49,23 @@
     let numTwo = '';
     const $operator = document.querySelector('#operator');
     const $result = document.querySelector('#result');
-    document.querySelector('#num-0').addEventListener('click', (number) => {
-      if (operator) { // 비어있지 않다.
-        numTwo += number;
-      } else { // 비어 있다.
-        numOne += number;
-      }
-      $result.value += number;  // 매개변수로 처리한 모습
-    });
+    const onClickNumber = (number) => { return () => {
+        if (operator) { // 비어있지 않다.
+          numTwo += number;
+        } else { // 비어 있다.
+          numOne += number;
+        }
+        $result.value += number;  // 매개변수로 처리한 모습
+      };
+    };
+    document.querySelector('#num-0').addEventListener('click', onClickNumber('1'));
     document.querySelector('#num-1').addEventListener('click', () => {
       if (operator) {
         numTwo += '1';
       } else {
         numOne += '1';
       }
-      $result.value += '1';
+      $result.value += '1'; // 화면에도 표시하기 위한 
     });
     document.querySelector('#num-2').addEventListener('click', () => {
       if (operator) {
