@@ -78,3 +78,5 @@ addEventListener('event', function) // function 자리에 ()을 넣는 실수를
 document.querySelector('input').addEventListener('input', (event) => {
     console.log('글자 입력', event.target.value);
 }) // 사용자가 input에 입력한 글자를 콘솔로그를 통해서 볼 수 있음
+
+
