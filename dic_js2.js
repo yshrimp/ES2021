@@ -79,4 +79,9 @@ document.querySelector('input').addEventListener('input', (event) => {
     console.log('글자 입력', event.target.value);
 }) // 사용자가 input에 입력한 글자를 콘솔로그를 통해서 볼 수 있음
 
+// 고차함수 (high order function)
+() => {
+    return // 바로 () => {return} 나오면 {}, return 생략 가능 
+} 
 
+(dsfja) 
