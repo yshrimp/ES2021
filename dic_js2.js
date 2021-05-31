@@ -115,4 +115,12 @@ const func2 = func('javascript'); // func2(); > javascript
 // 4. else를 제거한다. (이때 중첩 하나가 제거 된다.)
 
 
+// addEventListner에서 주의할 점
+// addEventListener('click', 함수자리)
+// 자리와 호출을 착각하지 말자
+/* function () {} 함수 선언식 즉 함수 그자체
+const func = function () {} 함수를 변수에 저장한 함수 표현식 이것 역시 함수 그자체
+다만 func / func()의 차이는 func() 함수가 실행됐을 때의 리턴값이다.
+즉 addEventListener('click', func())에서 func()의 리턴값은 undefined이기 때문에 제대로 돌아가지 않음 */
 
+Math.random() // 랜덤하게 숫자 줌

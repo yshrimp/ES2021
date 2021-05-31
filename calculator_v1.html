@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>계산기</title>
+  <title>계산기_v1</title>
   <style>
     * { box-sizing: border-box }
     #result { width: 180px; height: 50px; margin: 5px; text-align: right; }
@@ -47,7 +47,6 @@
     let numOne = '';
     let operator = '';
     let numTwo = '';
-    let numThree = '';
     const $operator = document.querySelector('#operator');
     const $result = document.querySelector('#result');
     const onClickNumber = (event) => {
@@ -55,7 +54,7 @@
           numOne += event.target.textContent;
           $result.value += event.target.textContent;
           return;  
-        }
+        } // 비어있지 있다.
         if (!numTwo) {
           $result.value = '';
         }
@@ -76,10 +75,10 @@
     document.querySelector('#num-9').addEventListener('click', onClickNumber);
 
     const onClickOperator = (op) => () => {
-      if (numOne) {   
+      if (numOne || op = '-') {
         operator = op;
         $operator.value = op;
-        
+        $result.value += op;
       } else{
         alert('숫자를 먼저 입력하세요.');
       }
@@ -106,12 +105,11 @@
           default:
             break;
         }
-        
+        numOne = $result.value
+        numTwo = '';
       } else {
         alert('숫자를 먼저 입력하세요');
       }
-      $result.value = numOne;
-      numTwo = '';
     });
     document.querySelector('#clear').addEventListener('click', () => {
       numOne = '';

@@ -39,3 +39,23 @@ console.log는 값을 콘솔 창에 그려주는 역할일 뿐 반환 값이 아
 
 [] {} function, method 형태는 다르지만 다 객체에 속한다.
 */
+
+if (checkInput(value)) {
+  // 입력값 문제 없음
+  if (answer.join('') === value) {
+    $logs.textContent = '홈런 !';
+    return;
+  }
+  if (tries.length >=  9) {
+    const message = document.createTextNode(`패배 ! 정답은 ${answer.join('')}`);
+    $logs.appendChild(message);
+    return;
+  }
+  // 몇 스트라이크 몇 볼인지 검사
+} else {
+  // 에러 있음
+}
+tries.push(value);
+});
+
+// 이거 코드 줄이기

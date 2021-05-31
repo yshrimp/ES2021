@@ -60,16 +60,14 @@ function test() {
 
 function test() {
     let result = '';
-    if (a) {
-        if (!b) {
-            result = 'c';
-        }
-        result += 'b';
-        return result;
-    } else {
+    if (!a) {
         result = 'a';
         result += 'b';
-        return result;
+        return result;        
+    } 
+    if (!b) {
+        result = 'c';
     }
-    
+    result += 'b';
+    return result;    
 }

@@ -49,7 +49,7 @@ console.log는 return 값이 없다. 그래서 undefined가 뜨는 거다.
 
 switch 조건문 // 조건식과 비교조건식을 따져서 같으면 동작시키는 조건문
 switch (조건식) {
-    case 비교조건식
+    case 비교조건식:
     동작식;
 }
 
