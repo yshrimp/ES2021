@@ -124,3 +124,54 @@ const func = function () {} 함수를 변수에 저장한 함수 표현식 이�
 즉 addEventListener('click', func())에서 func()의 리턴값은 undefined이기 때문에 제대로 돌아가지 않음 */
 
 Math.random() // 랜덤하게 숫자 줌
+
+const answer = [3, 1, 4, 6];
+const value = '3214';
+let strike = 0;
+let ball = 0;
+
+for (let i = 0; i < answer.length; i++) {
+    const index = value.indexOf(answer[i]);
+    if (index > -1) {
+        if (index === i) {
+            strike += 1;
+        } else {
+            ball += 1;
+        }
+    }
+}
+
+// 여기 반복문(for문)을 foreach를 통해서 바꿀 수 있다. foreach는 배열에 한해서 쓸 수 있음
+// foreach(함수자리) foreach((element, index) => {})
+
+answer.forEach((element, i) => {
+    const index = value.indexOf(element);
+    if (index > -1) {
+        if (index === i) {
+            strike += 1;
+        } else {
+            ball += 1;
+        }
+    }
+});
+// forEach는 요소하나에 이 함수를 실행 해줌;
+
+const array = [1, 2, 3, 4];
+const result = [];
+for (let i = 0; i < 4; i++) {
+    result.push(array[i] * 2);
+};
+
+array.map((element, i) => {
+    return element * 2;
+});
+
+// array의 값이 바뀌는건 아님 map을 쓰면 새로운 배열이 생김
+//  숫자 야구에서 
+
+Array(9).fill().map((el, idx) => {
+    return idx + 1;
+}); 
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+setTimeout(함수자리, 밀리초); // 1초는 1000밀리초
