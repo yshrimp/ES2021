@@ -175,3 +175,34 @@ Array(9).fill().map((el, idx) => {
 // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 setTimeout(함수자리, 밀리초); // 1초는 1000밀리초
+
+let 아이디 = setTimeout(함수, 밀리초)
+clearTimeout(아이디);
+// setTimeout을 멈추는 함수
+// 다만 setTimeout이 실행되기 전에 함수를 써야 멈춤 clearInterval과는 다르게
+
+let 아이디 =  setInterval(함수, 밀리초);
+clearInterval(아이디);
+// setInterval을 멈추게 하는 함수
+
+removeEventListener 사용시 주의점
+
+const fun = (값) => () => {
+    console.log('고차함수 입니다.', 값);
+};
+
+태그.addEventListener('click', fun(1));
+// 태그.removeEventListener('click', fun(1)); 이건 틀린 답
+// 이유는 함수도 객체다. 즉 addEvenetListener에서 함수와 removeEventListener에서의 함수가 서로 같아야만 한다.
+// 그냥 하면 fun(1) === fun(1)은 서로 다른 객체이기 때문에
+
+const fun(1) = fun(1);
+fun(1) = fun(1);
+
+태그.addEventListener('click', fun(1));
+태그.removeEventListener('click', fun(1));
+
+
+// 꿀팁
+diff === '고양이' || diff === '사자' || diff === '강아지' || diff === '소'
+['고양이', '사자', '강아지', '소'].includes(diff)
