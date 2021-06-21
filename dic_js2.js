@@ -219,3 +219,51 @@ a: 6 c: 4
 */
 // 10 최종 값이 return 값  return 빼먹으면 안됨
 // reduce는 초기값을 안넣으면 배열의 첫 인덱스가 초기값이 된다.
+
+
+// 구조분해 할당
+const { body } = document; // 자바스크립트 최신 문법;
+const body = document.body; // 둘이 같은거임
+const createElement = document.createElement;
+const { body, createElement } = document;
+
+// 어떤 때 쓸 수 있나
+//  어떤 객체의 속성과 그것을 담는 변수의 명이 같을 때 쓸 수 있다.
+
+// 배열의 구조분해 할당
+const arr = [1, 2, 3, 4 ,5];
+const one = arr[0];
+const two = arr[1];
+const three = arr[2];
+const four = arr[3];
+const five = arr[4];
+
+const [one, two, three, four, five] = arr; // 이렇게 줄이기 가능
+//  two, four는 쓰기 싫다?
+const [one,, three,, five] = arr;
+
+const obj = {
+    a : 'hello',
+    b : {
+        c: 'hi',
+        d: { e: 'wow'},
+    },
+};
+
+const { a, b : { c, d: { e } } } = obj;
+const a = obj.a;
+const c = obj.b.c;
+const e = obj.b.d.e;
+
+// a, b, d를 얻고 싶을땐
+const { a, b } = obj;
+const { d: { e } } = b;
+
+// 이벤트 버블링
+// 이벤트가 부모 따라 거품처럼 올라간다.
+// td 클릭 이벤트인데 tr, table 부모 태그를 클릭해도 td에서 이벤트가 발생하는 현상
+// td가 아니라 진짜 table을 건드리고 싶을 때는 event.currentTarget을 쓴다.
+// 이벤트 버블링을 막고 싶을 때 event.stopPropagation을 씀
+// 이벤트 버블링의 반대 이벤트 캡처링 // 거의 쓸일은 없음 
+// addEventListener('click', callback, true) 이렇게 쓰면 이벤트 캡처링 (기본값은 false)
+
